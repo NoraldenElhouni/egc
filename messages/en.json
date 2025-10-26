@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "contact": "Contact Us"
+  },
+  "footer": {
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service",
+    "copyright": "Copyright © 2024 Our Company. All rights reserved."
+  },
+  "homepage": {
+    "welcome_message": "Welcome to Our Website!",
+    "intro_text": "We are committed to providing the best services to our clients.",
+    "learn_more": "Learn More"
+  }
+}
