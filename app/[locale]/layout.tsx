@@ -4,6 +4,8 @@ import { Cairo, Cormorant_Garamond, Geist } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
 import "./globals.css";
+import { Footer } from "@/components/layout/footer";
+import { Navigation } from "@/components/layout/navigation";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -52,7 +54,11 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body className={`font-sans antialiased`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <Navigation />
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
