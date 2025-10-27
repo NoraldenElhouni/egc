@@ -1,7 +1,7 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-primary text-primary-foreground py-16">
@@ -11,10 +11,13 @@ export function Footer() {
           <div className="lg:col-span-2">
             <h3 className="font-serif font-semibold text-3xl mb-4">EGC</h3>
             <p className="text-primary-foreground/80 leading-relaxed mb-6 max-w-md">
-              Engineering Group Company - A multi-disciplinary architectural practice dedicated to creating exceptional
-              spaces that honor heritage and embrace innovation.
+              Engineering Group Company - A multi-disciplinary architectural
+              practice dedicated to creating exceptional spaces that honor
+              heritage and embrace innovation.
             </p>
-            <div className="text-sm text-primary-foreground/60">Established 1998 | Benghazi, Libya</div>
+            <div className="text-sm text-primary-foreground/60">
+              Established 1998 | Benghazi, Libya
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -81,18 +84,12 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/60">
-            <p>© {currentYear} Engineering Group Company. All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-primary-foreground transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-primary-foreground transition-colors">
-                Terms of Service
-              </a>
-            </div>
+            <p>
+              © {currentYear} Engineering Group Company. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

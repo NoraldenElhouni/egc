@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -23,7 +24,10 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-background">
+    <section
+      id="contact"
+      className="py-24 md:py-32 bg-background max-w-7xl mx-auto"
+    >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Contact Info */}
@@ -32,7 +36,7 @@ export function ContactSection() {
               <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4">
                 Get in Touch
               </p>
-              <h2 className="font-serif font-semibold text-4xl md:text-5xl lg:text-6xl text-balance leading-tight">
+              <h2 className="font-serif font-semibold text-4xl md:text-5xl text-balance leading-tight">
                 Let&apos;s Create Something Extraordinary
               </h2>
               <p className="text-muted-foreground mt-6 leading-relaxed">
@@ -43,8 +47,13 @@ export function ContactSection() {
             </div>
 
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <Link
+                href="https://maps.app.goo.gl/JNarJPRNiNZqgBwP8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 hover:opacity-80 transition-opacity"
+              >
+                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-accent" />
                 </div>
                 <div>
@@ -55,10 +64,13 @@ export function ContactSection() {
                     Benghazi, Libya
                   </p>
                 </div>
-              </div>
+              </Link>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <Link
+                href="tel:+218XXXXXXXXX"
+                className="flex items-start gap-4 hover:opacity-80 transition-opacity"
+              >
+                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5 text-accent" />
                 </div>
                 <div>
@@ -67,30 +79,33 @@ export function ContactSection() {
                     +218 XX XXX XXXX
                   </p>
                 </div>
-              </div>
+              </Link>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <Link
+                href="mailto:info@engroup.ly"
+                className="flex items-start gap-4 hover:opacity-80 transition-opacity"
+              >
+                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
                   <p className="text-muted-foreground text-sm">
-                    info@egc-libya.com
+                    info@engroup.ly
                   </p>
                 </div>
-              </div>
+              </Link>
             </div>
 
             <div className="pt-6 border-t border-border">
               <h3 className="font-semibold mb-4">Office Hours</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
                 <div className="flex justify-between">
-                  <span>Sunday - Thursday</span>
-                  <span>8:00 AM - 5:00 PM</span>
+                  <span>Saturday - Thursday</span>
+                  <span>9:00 AM - 5:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Friday - Saturday</span>
+                  <span>Friday</span>
                   <span>Closed</span>
                 </div>
               </div>

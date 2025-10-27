@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 type ProjectCategory =
   | "all"
@@ -124,20 +125,21 @@ export function ProjectsSection() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {displayedProjects.map((project, index) => (
             <Link
               key={index}
               href={`/projects/${project.slug}`}
               className="group cursor-pointer"
             >
-              <div className="relative aspect-[4/3] overflow-hidden mb-6 bg-card">
-                <img
+              <div className="relative aspect-4/3 overflow-hidden mb-6 bg-card">
+                <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
+                  fill
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     <p className="text-sm mb-2">{project.description}</p>
                   </div>
