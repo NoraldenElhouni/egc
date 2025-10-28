@@ -40,7 +40,7 @@ export function GallerySection() {
   ];
 
   return (
-    <section id="gallery" className="py-24 md:py-32 bg-muted/30">
+    <section id="gallery" className="py-12 md:py-24 bg-muted/30">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4">

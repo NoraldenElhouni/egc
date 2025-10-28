@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -103,7 +104,13 @@ export function Navigation() {
               isScrolled ? "text-xl" : "text-2xl"
             }`}
           >
-            EGC
+            <Image
+              src="/logos/egclogow-removebg-preview.png"
+              alt="EGC Logo"
+              width={210}
+              height={100}
+              className="object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}

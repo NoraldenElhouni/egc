@@ -1,13 +1,20 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img src="/modern-architectural-building-facade-minimalist.jpg" alt="Modern Architecture" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-background" />
+        <img
+          src="/modern-architectural-building-facade-minimalist.jpg"
+          alt="Modern Architecture"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/30 to-background" />
       </div>
 
       {/* Content */}
@@ -19,8 +26,9 @@ export function HeroSection() {
             <span className="font-semibold">Rooted in Heritage</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Engineering Group Company fuses traditional Arab architecture with contemporary design, creating spaces that
-            honor culture while embracing innovation.
+            Engineering Group Company fuses traditional Arab architecture with
+            contemporary design, creating spaces that honor culture while
+            embracing innovation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Button asChild size="lg" variant="default" className="group">
@@ -48,5 +56,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

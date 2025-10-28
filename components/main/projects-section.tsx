@@ -84,6 +84,26 @@ export function ProjectsSection() {
         "Luxury coastal resort with hotel and residential facilities.",
       slug: "qaryounis-resort",
     },
+    {
+      title: "Residential Complex",
+      category: "residential",
+      location: "Benghazi, Libya",
+      year: "2022",
+      image: "/modern-residential-complex-architecture.jpg",
+      description:
+        "1,800 residential units with integrated community facilities.",
+      slug: "residential-complex-benghazi",
+    },
+    {
+      title: "Heritage Market Restoration",
+      category: "cultural",
+      location: "Old City, Benghazi",
+      year: "2020",
+      image: "/traditional-market-restoration-architecture.jpg",
+      description:
+        "Restoration and modernization of historic market preserving cultural heritage.",
+      slug: "heritage-market-restoration",
+    },
   ];
 
   const filteredProjects =
@@ -93,7 +113,7 @@ export function ProjectsSection() {
   const displayedProjects = filteredProjects.slice(0, 6);
 
   return (
-    <section id="projects" className="py-24 md:py-32 bg-background">
+    <section id="projects" className="py-12 md:py-24 bg-background">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4">
