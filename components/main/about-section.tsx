@@ -1,4 +1,7 @@
+import { useTranslations } from "next-intl";
+
 export function AboutSection() {
+  const t = useTranslations("about");
   return (
     <section id="about" className="py-12 md:py-24 bg-background">
       <div className="container mx-auto px-6 lg:px-12">
@@ -16,40 +19,18 @@ export function AboutSection() {
           <div className="space-y-6">
             <div className="space-y-2">
               <p className="text-sm uppercase tracking-widest text-muted-foreground">
-                Since 1998
+                {t("since")}
               </p>
               <h2 className="font-serif font-semibold text-4xl md:text-5xl lg:text-6xl text-balance leading-tight">
-                A Legacy of Design Excellence
+                {t("header")}
               </h2>
             </div>
 
             <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Engineering Group Company (EGC) is a multi-disciplinary
-                architectural practice based in Benghazi, Libya, with extensive
-                experience in architecture, urbanism, and engineering.
-                Established in 1998, we have grown to a team of 38 dedicated
-                professionals, including four principal partners.
-              </p>
-              <p>
-                Our practice consists of architects, urban designers, planners,
-                and technical staff who bring decades of combined expertise to
-                every project. We specialize in on-site supervision and
-                comprehensive project management, ensuring excellence from
-                concept to completion.
-              </p>
-              <p>
-                At the heart of EGC lies our commitment to providing distinctive
-                design that contributes meaningfully to the field of
-                architecture. We work within the framework of local urban
-                settings, with a strong emphasis on cultural and environmental
-                considerations.
-              </p>
-              <p className="font-medium text-foreground">
-                Our contemporary architectural language embodies the tradition
-                of Arab culture and environment, fusing structural tenets of
-                traditional architecture with the vocabulary of modernism.
-              </p>
+              <p>{t("paragraph1")}</p>
+              <p>{t("paragraph2")}</p>
+              <p>{t("paragraph3")}</p>
+              <p className="font-medium text-foreground">{t("paragraph4")}</p>
             </div>
 
             <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border">
@@ -58,7 +39,7 @@ export function AboutSection() {
                   25+
                 </div>
                 <div className="text-sm text-muted-foreground mt-1">
-                  Years Experience
+                  {t("years")}
                 </div>
               </div>
               <div>
@@ -66,7 +47,7 @@ export function AboutSection() {
                   500+
                 </div>
                 <div className="text-sm text-muted-foreground mt-1">
-                  Projects Completed
+                  {t("projects")}
                 </div>
               </div>
               <div>
@@ -74,7 +55,7 @@ export function AboutSection() {
                   38
                 </div>
                 <div className="text-sm text-muted-foreground mt-1">
-                  Team Members
+                  {t("team")}
                 </div>
               </div>
             </div>
@@ -101,11 +82,10 @@ export function AboutSection() {
               </svg>
             </div>
             <h3 className="font-serif font-semibold text-xl mb-3">
-              Innovation
+              {t("innovation")}
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Embracing cutting-edge design solutions while respecting
-              traditional architectural principles.
+              {t("innovationDescription")}
             </p>
           </div>
           <div className="text-center p-8">
@@ -127,11 +107,10 @@ export function AboutSection() {
               </svg>
             </div>
             <h3 className="font-serif font-semibold text-xl mb-3">
-              Excellence
+              {t("excellence")}
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Delivering the highest quality in every aspect of our work, from
-              design to execution.
+              {t("excellenceDescription")}
             </p>
           </div>
           <div className="text-center p-8">
@@ -153,11 +132,10 @@ export function AboutSection() {
               </svg>
             </div>
             <h3 className="font-serif font-semibold text-xl mb-3">
-              Sustainability
+              {t("sustainability")}
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Creating environmentally responsible designs that minimize impact
-              and maximize efficiency.
+              {t("sustainabilityDescription")}
             </p>
           </div>
         </div>

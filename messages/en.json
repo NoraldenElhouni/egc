@@ -1,18 +1,35 @@
 {
-  "navbar": {
+  "about": {
+    "excellence": "Excellence",
+    "excellenceDescription": "Delivering the highest quality in every aspect of our work, from\n              design to execution.",
+    "header": "A Legacy of Design Excellence",
+    "innovation": "Innovation",
+    "innovationDescription": " Embracing cutting-edge design solutions while respecting\n              traditional architectural principles.",
+    "paragraph1": "Engineering Group Company (EGC) is a multi-disciplinary\n                architectural practice based in Benghazi, Libya, with extensive\n                experience in architecture, urbanism, and engineering.\n                Established in 1998, we have grown to a team of 38 dedicated\n                professionals, including four principal partners.",
+    "paragraph2": " Our practice consists of architects, urban designers, planners,\n                and technical staff who bring decades of combined expertise to\n                every project. We specialize in on-site supervision and\n                comprehensive project management, ensuring excellence from\n                concept to completion.",
+    "paragraph3": "At the heart of EGC lies our commitment to providing distinctive\n                design that contributes meaningfully to the field of\n                architecture. We work within the framework of local urban\n                settings, with a strong emphasis on cultural and environmental\n                considerations.",
+    "paragraph4": "Our contemporary architectural language embodies the tradition\n                of Arab culture and environment, fusing structural tenets of\n                traditional architecture with the vocabulary of modernism.",
+    "projects": "Projects Completed",
+    "since": "Since 1998",
+    "sustainability": "Sustainability",
+    "sustainabilityDescription": "Creating environmentally responsible designs that minimize impact\n              and maximize efficiency.",
+    "team": "Team Members",
+    "years": "Years Experience"
+  },
+  "hero": {
+    "header": "Architectural Excellence",
+    "header2": "Rooted in Heritage",
+    "learnMore": "Learn More",
+    "subheader": "Engineering Group Company fuses traditional Arab architecture with contemporary design, creating spaces that honor culture while embracing innovation.",
+    "viewWork": "View Our Work"
+  },
+  "nav": {
+    "about": "About",
+    "coFounders": "Co-Founders",
+    "contact": "Contact",
+    "contactUs": "Get in Touch",
+    "gallery": "Gallery",
     "home": "Home",
-    "about": "About Us",
-    "services": "Services",
-    "contact": "Contact Us"
-  },
-  "footer": {
-    "privacy_policy": "Privacy Policy",
-    "terms_of_service": "Terms of Service",
-    "copyright": "Copyright © 2024 Our Company. All rights reserved."
-  },
-  "homepage": {
-    "welcome_message": "Welcome to Our Website!",
-    "intro_text": "We are committed to providing the best services to our clients.",
-    "learn_more": "Learn More"
+    "projects": "Projects"
   }
 }

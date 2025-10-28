@@ -30,7 +30,7 @@ export function VisionSection() {
               </p>
             </div>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden">
+          <div className="relative aspect-4/3 overflow-hidden">
             <img
               src="/architectural-vision-modern-design.jpg"
               alt="Architectural Vision"

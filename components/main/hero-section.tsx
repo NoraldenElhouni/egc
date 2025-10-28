@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function HeroSection() {
+  const t = useTranslations("hero");
   return (
     <section
       id="home"
@@ -21,19 +23,17 @@ export function HeroSection() {
       <div className="relative z-10 container mx-auto px-6 lg:px-12 text-center">
         <div className="max-w-5xl mx-auto space-y-8 animate-fade-in-up">
           <h1 className="font-serif font-light text-5xl md:text-7xl lg:text-8xl text-balance leading-tight text-white">
-            Architectural Excellence
+            {t("header")}
             <br />
-            <span className="font-semibold">Rooted in Heritage</span>
+            <span className="font-semibold">{t("header2")}</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Engineering Group Company fuses traditional Arab architecture with
-            contemporary design, creating spaces that honor culture while
-            embracing innovation.
+            {t("subheader")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Button asChild size="lg" variant="default" className="group">
               <a href="#projects" className="flex items-center gap-2">
-                View Our Work
+                {t("viewWork")}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
@@ -43,7 +43,7 @@ export function HeroSection() {
               variant="outline"
               className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
             >
-              <a href="#about">Learn More</a>
+              <a href="#about">{t("learnMore")}</a>
             </Button>
           </div>
         </div>

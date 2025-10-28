@@ -66,7 +66,7 @@ export function TeamSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 max-w-6xl mx-auto">
           {team.map((member, index) => (
             <div key={index} className="group">
-              <div className="relative aspect-[3/4] overflow-hidden mb-6 bg-card">
+              <div className="relative aspect-3/4 overflow-hidden mb-6 bg-card">
                 <img
                   src={member.image || "/placeholder.svg"}
                   alt={member.name}

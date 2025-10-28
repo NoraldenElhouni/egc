@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect, type MouseEvent } from "react";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,70 +6,56 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
+import LocaleSwitcher from "../localeSwitcher";
+import { useTranslations } from "next-intl";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const t = useTranslations("nav");
 
   const handleLinkClick = (e: MouseEvent, href: string) => {
-    // If href contains a hash, try to scroll to the element with that id.
     if (href.includes("#")) {
       e.preventDefault();
       const [, hash] = href.split("#");
       const id = hash;
-
-      // If element exists on the page, smooth scroll to it and update URL hash.
       const el =
         typeof document !== "undefined" ? document.getElementById(id) : null;
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
-        // Update the URL hash without causing a navigation.
         if (typeof window !== "undefined") {
           window.history.pushState(null, "", `#${id}`);
         }
       } else {
-        // Element not present (maybe different page) — perform a navigation.
         router.push(href);
       }
-
-      // Close mobile menu if open.
       setIsMobileMenuOpen(false);
     }
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/#about", label: "About" },
-    { href: "/#founders", label: "Co-Founders" },
-    { href: "/#projects", label: "Projects" },
-    { href: "/#gallery", label: "Gallery" },
-    { href: "/#contact", label: "Contact" },
+    { href: "/", label: t("home") },
+    { href: "/#about", label: t("about") },
+    { href: "/#founders", label: t("coFounders") },
+    { href: "/#projects", label: t("projects") },
+    { href: "/#gallery", label: t("gallery") },
+    { href: "/#contact", label: t("contact") },
   ];
 
   const container = {
     hidden: { opacity: 1 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.04,
-      },
-    },
+    show: { opacity: 1, transition: { staggerChildren: 0.04 } },
   };
 
-  const item = {
-    hidden: { opacity: 0, y: -6 },
-    show: { opacity: 1, y: 0 },
-  };
+  const item = { hidden: { opacity: 0, y: -6 }, show: { opacity: 1, y: 0 } };
 
   return (
     <nav
@@ -83,7 +68,7 @@ export function Navigation() {
       <div className="container mx-auto px-6 lg:px-12">
         <div
           className={`flex items-center justify-between transition-all duration-300 ${
-            isScrolled ? "h-16" : "h-20"
+            isScrolled ? "h-18" : "h-20"
           }`}
         >
           {/* Logo */}
@@ -94,7 +79,6 @@ export function Navigation() {
                 e.preventDefault();
                 if (typeof window !== "undefined") {
                   window.scrollTo({ top: 0, behavior: "smooth" });
-                  // Clear any hash without navigating
                   window.history.pushState(null, "", "/");
                 }
                 setIsMobileMenuOpen(false);
@@ -104,13 +88,55 @@ export function Navigation() {
               isScrolled ? "text-xl" : "text-2xl"
             }`}
           >
+            {/* Desktop: full logo */}
             <Image
               src="/logos/egclogow-removebg-preview.png"
               alt="EGC Logo"
               width={210}
               height={100}
-              className="object-contain"
+              className="hidden lg:block object-contain"
             />
+
+            {/* Mobile: animated swap between small and full logo */}
+            <div className="block lg:hidden">
+              <AnimatePresence initial={false} mode="wait">
+                {isMobileMenuOpen ? (
+                  <motion.div
+                    key="logo-full"
+                    initial={{ opacity: 0, y: -6, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -6, scale: 0.98 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex items-center"
+                  >
+                    <Image
+                      src="/logos/egclogow-removebg-preview.png"
+                      alt="EGC Full"
+                      width={190}
+                      height={100}
+                      className="object-contain"
+                    />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="logo-small"
+                    initial={{ opacity: 0, y: -4, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -4, scale: 0.98 }}
+                    transition={{ duration: 0.18 }}
+                    className="flex items-center"
+                  >
+                    <Image
+                      src="/logos/egclogow-removebg-small.png"
+                      alt="EGC Small"
+                      width={40}
+                      height={40}
+                      className="object-contain"
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -135,12 +161,17 @@ export function Navigation() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="ghost" size="sm" aria-label="Change language">
-              <Globe size={16} />
-              <span>EN</span>
-            </Button>
-            <Button asChild variant="default" size="sm">
-              <Link href="/#contact">Get in Touch</Link>
+            <LocaleSwitcher />
+            <Button
+              asChild
+              variant="default"
+              size="sm"
+              onClick={(e) => {
+                setIsMobileMenuOpen(false);
+                handleLinkClick(e, "/#contact");
+              }}
+            >
+              <Link href="/#contact">{t("contactUs")}</Link>
             </Button>
           </div>
 
@@ -192,15 +223,9 @@ export function Navigation() {
 
                 <div className="flex justify-between ">
                   <motion.div variants={item}>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="mt-4 w-full"
-                      aria-label="Change language"
-                    >
-                      <Globe size={16} />
-                      <span>EN</span>
-                    </Button>
+                    <div className="mt-4 w-full" aria-label="Change language">
+                      <LocaleSwitcher />
+                    </div>
                   </motion.div>
                   <motion.div variants={item}>
                     <Button
@@ -216,7 +241,7 @@ export function Navigation() {
                           handleLinkClick(e, "/#contact");
                         }}
                       >
-                        Get in Touch
+                        {t("contactUs")}
                       </Link>
                     </Button>
                   </motion.div>
