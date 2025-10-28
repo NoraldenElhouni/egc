@@ -147,11 +147,7 @@ export function ProjectsSection() {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {displayedProjects.map((project, index) => (
-            <Link
-              key={index}
-              href={`/projects/${project.slug}`}
-              className="group cursor-pointer"
-            >
+            <div key={index} className="group cursor-pointer">
               <div className="relative aspect-4/3 overflow-hidden mb-6 bg-card">
                 <Image
                   src={project.image || "/placeholder.svg"}
@@ -174,18 +170,18 @@ export function ProjectsSection() {
                   <span>{project.year}</span>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <Button asChild size="lg" className="group">
             <Link href="/projects">
               View All Projects
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -50,7 +50,7 @@ export function TeamSection() {
               and project management.
             </p>
           </div>
-          <Button
+          {/* <Button
             asChild
             variant="outline"
             className="hidden md:flex bg-transparent"
@@ -59,7 +59,7 @@ export function TeamSection() {
               View All Team
               <ArrowRight size={16} />
             </Link>
-          </Button>
+          </Button> */}
         </div>
 
         {/* Principal Partners */}

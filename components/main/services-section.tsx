@@ -6,44 +6,40 @@ import {
   Lightbulb,
   FileText,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function ServicesSection() {
+  const t = useTranslations("services");
   const services = [
     {
       icon: Building2,
-      title: "Architectural Design",
-      description:
-        "Comprehensive architectural design services from concept to completion, blending contemporary aesthetics with functional excellence.",
+      title: t("architectural"),
+      description: t("architecturalDesc"),
     },
     {
       icon: Ruler,
-      title: "Urban Planning",
-      description:
-        "Master planning and urban design solutions that create sustainable, livable communities and enhance urban environments.",
+      title: t("urban"),
+      description: t("urbanDesc"),
     },
     {
       icon: ClipboardCheck,
-      title: "Project Management",
-      description:
-        "End-to-end project management ensuring timely delivery, quality control, and budget adherence throughout the construction process.",
+      title: t("project"),
+      description: t("projectDesc"),
     },
     {
       icon: Users,
-      title: "Engineering Consultancy",
-      description:
-        "Multidisciplinary engineering services including structural, MEP, and civil engineering for complex projects.",
+      title: t("engineering"),
+      description: t("engineeringDesc"),
     },
     {
       icon: Lightbulb,
-      title: "Heritage Conservation",
-      description:
-        "Specialized restoration and conservation services preserving cultural heritage while adapting historic structures for modern use.",
+      title: t("heritage"),
+      description: t("heritageDesc"),
     },
     {
       icon: FileText,
-      title: "Site Supervision",
-      description:
-        "Professional on-site supervision and quality assurance ensuring construction meets design specifications and standards.",
+      title: t("site"),
+      description: t("siteDesc"),
     },
   ];
 

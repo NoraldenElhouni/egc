@@ -74,7 +74,7 @@ export function GallerySection() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <Button
             asChild
             size="lg"
@@ -86,7 +86,7 @@ export function GallerySection() {
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
