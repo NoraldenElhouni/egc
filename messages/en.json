@@ -16,6 +16,23 @@
     "team": "Team Members",
     "years": "Years Experience"
   },
+  "founders": {
+    "amer": {
+      "bio": "Dr. Mohamed Ben Ali is an academic and architectural professional specializing in architecture and urban design. He holds a Doctorate in Architecture from the University of Sydney, Australia. With extensive academic and professional experience, he has overseen and contributed to numerous design and planning projects both within Libya and internationally.",
+      "name": "Dr. Amer Mohamed Ben Ali",
+      "title": "Urban Planning Director"
+    },
+    "rafiq": {
+      "bio": "Dr. Rafiq Mohamed Al-Mukarrif is an academic and architectural consultant specializing in architecture and urban planning. He holds a Doctorate in Urban Design from the University of London, along with a specialization certificate in Urban Planning from Washington, D.C., USA. With extensive academic and professional experience, he has supervised and contributed to numerous architectural and planning projects both within Libya and internationally.",
+      "name": "Dr. Rafiq Mohamed Al-Mukarrif",
+      "title": "Architecture & Urban Design Consultant"
+    },
+    "tareq": {
+      "bio": "Arch. Tareq Wahbi Al-Bury is an academic and architectural consultant specializing in architecture and urban planning. He holds a Master’s degree in Architecture from the Royal Institute in the United Kingdom. With extensive academic and professional experience, he has overseen and contributed to numerous architectural and design projects both within Libya and internationally.",
+      "name": "Prof. Tareq Wahbi Al-Bury",
+      "title": "Architecture & Urban Planning Consultant"
+    }
+  },
   "hero": {
     "header": "Architectural Excellence",
     "header2": "Rooted in Heritage",

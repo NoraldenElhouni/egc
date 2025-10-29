@@ -1,24 +1,26 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export function FoundersSection() {
+  const t = useTranslations("founders");
   const founders = [
     {
-      name: "Principal Partner",
-      title: "Lead Architect & Co-Founder",
+      name: t("rafiq.name"),
+      title: t("rafiq.title"),
       image: "/professionals/architect-1.png",
-      bio: "With over 25 years of experience in architectural design and urban planning, our lead architect has shaped the vision of EGC since its inception.",
+      bio: t("rafiq.bio"),
     },
     {
-      name: "Principal Partner",
-      title: "Urban Planning Director & Co-Founder",
-      image: "/professional-urban-planner-portrait.jpg",
-      bio: "Specializing in sustainable urban development and heritage preservation, bringing innovative solutions to complex planning challenges.",
-    },
-    {
-      name: "Principal Partner",
-      title: "Engineering Director & Co-Founder",
+      name: t("amer.name"),
+      title: t("amer.title"),
       image: "/professional-engineer-portrait.png",
-      bio: "Expert in structural engineering and project management, ensuring technical excellence and seamless execution of all projects.",
+      bio: t("amer.bio"),
+    },
+    {
+      name: t("tareq.name"),
+      title: t("tareq.title"),
+      image: "/professional-engineer-portrait.png",
+      bio: t("tareq.bio"),
     },
   ];
 
