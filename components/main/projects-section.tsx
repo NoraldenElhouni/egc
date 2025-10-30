@@ -54,7 +54,10 @@ export function ProjectsSection() {
       description:
         "The Libyan Airlines Monument in Libya, a winning first-place competition entry for a Memorial/Monument Design, was conceived to honor the 113 passengers and crew who perished when a Libyan aircraft was brought down in 1973. The design embodies remembrance, unity, and resilience through a powerful architectural expression centered on a symbolic flower, whose petals each represent one of the victims. This form of collective remembrance is enclosed by a triangular building that captures the motion and final trajectory of the airplane, blending symbolism, geometry, and emotion to transform tragedy into a space for reflection and national memory.",
       images: [
+        "/projects/Benghazi Westren Lake Recreation and leisure Park/1_4 - Photo.png",
         "/projects/Benghazi Westren Lake Recreation and leisure Park/westren Lake.png",
+        "/projects/Benghazi Westren Lake Recreation and leisure Park/1_2 - Photo.png",
+        "/projects/Benghazi Westren Lake Recreation and leisure Park/1_8 - Photo.png",
       ],
       slug: "Benghazi-Westren-Lake-Recreation-and-leisure-Park",
     },
@@ -64,7 +67,13 @@ export function ProjectsSection() {
       location: "Benghazi, Libya",
       description:
         "The Benghazi 1800 Housing Development in Libya is a conceptual master plan for a residential project that draws inspiration from the spatial qualities of traditional Italian villages, centering community life around a vibrant central square designed to host social, commercial, and recreational activities. This core is surrounded by clusters of housing units and educational facilities, arranged to ensure accessibility and a comfortable living environment while promoting walkability and interaction within a human-scaled urban fabric that balances density with open communal areas. By integrating Mediterranean planning principles with local needs, the proposal aims to create a cohesive and lively neighborhood that fosters family life and community engagement in Benghazi.",
-      images: ["/projects/1800 Housing Units/t8.png"],
+      images: [
+        "/projects/1800 Housing Units/t8.png",
+        "/projects/1800 Housing Units/Layer 9.png",
+        "/projects/1800 Housing Units/Layer 11.png",
+        "/projects/1800 Housing Units/Layer 14.png",
+        "/projects/1800 Housing Units/Layer 16.png",
+      ],
       slug: "1800-housing-units",
     },
     {
