@@ -1,22 +1,31 @@
 {
   "about": {
-    "excellence": "Excellence",
-    "excellenceDescription": "Delivering the highest quality in every aspect of our work, from\n              design to execution.",
     "header": "A Legacy of Design Excellence",
-    "innovation": "Innovation",
-    "innovationDescription": " Embracing cutting-edge design solutions while respecting\n              traditional architectural principles.",
-    "paragraph1": "Engineering Group Company (EGC) is a multi-disciplinary\n                architectural practice based in Benghazi, Libya, with extensive\n                experience in architecture, urbanism, and engineering.\n                Established in 1998, we have grown to a team of 38 dedicated\n                professionals, including four principal partners.",
-    "paragraph2": " Our practice consists of architects, urban designers, planners,\n                and technical staff who bring decades of combined expertise to\n                every project. We specialize in on-site supervision and\n                comprehensive project management, ensuring excellence from\n                concept to completion.",
-    "paragraph3": "At the heart of EGC lies our commitment to providing distinctive\n                design that contributes meaningfully to the field of\n                architecture. We work within the framework of local urban\n                settings, with a strong emphasis on cultural and environmental\n                considerations.",
-    "paragraph4": "Our contemporary architectural language embodies the tradition\n                of Arab culture and environment, fusing structural tenets of\n                traditional architecture with the vocabulary of modernism.",
+    "mission": {
+      "dec": "Providing integrated engineering services that align with the latest global concepts in design and management, with a commitment to quality, transparency, and innovation, while fostering a motivating work environment that enhances creativity and supports sustainability across all our projects.",
+      "title": "Our Mission"
+    },
+    "paragraph1": "Engineering Group Company (EGC) is a multi-disciplinary architectural practice based in Benghazi, Libya, with extensive experience in architecture, urbanism, and engineering. Established in 1998, we have grown to a team of 38 professionals, including four principal partners.",
+    "paragraph2": "Our practice consists of architects, urban designers, planners, and technical staff who bring decades of combined expertise to every project. We specialize in on-site supervision and comprehensive project management, ensuring excellence from concept to completion.",
+    "paragraph3": "At the heart of EGC lies our commitment to providing distinctive design that contributes meaningfully to the field of architecture. We work within the framework of local urban settings, with a strong emphasis on cultural and environmental considerations.",
+    "paragraph4": "Our contemporary architectural language embodies the tradition of Arab culture and environment, fusing structural tenets of traditional architecture with the vocabulary of modernism.",
     "projects": "Projects Completed",
     "since": "Since 1998",
-    "sustainability": "Sustainability",
-    "sustainabilityDescription": "Creating environmentally responsible designs that minimize impact\n              and maximize efficiency.",
     "team": "Team Members",
+    "values": {
+      "dec": "Quality and excellence in all stages of work. Commitment to deadlines and defined costs. Effective collaboration between the team and clients. Continuous innovation and development in design techniques and methods. Environmental sustainability and harmony with the local identity. Credibility and transparency in professional dealings.",
+      "title": "Our Values & Objectives"
+    },
+    "vision": {
+      "dec": "To be one of the leading engineering consultancy firms in Libya and the region, distinguished by our unique designs and high-quality services, and contributing to the development of the local built environment through an approach that combines authenticity and modernity.",
+      "title": "Our Vision"
+    },
     "years": "Years Experience"
   },
   "founders": {
+    "leadership": "Leadership",
+    "title": "Meet Our Co-Founders",
+    "description": "Four principal partners with complementary expertise, united by a shared vision for architectural excellence and cultural preservation.",
     "amer": {
       "bio": "Dr. Mohamed Ben Ali is an academic and architectural professional specializing in architecture and urban design. He holds a Doctorate in Architecture from the University of Sydney, Australia. With extensive academic and professional experience, he has overseen and contributed to numerous design and planning projects both within Libya and internationally.",
       "name": "Dr. Amer Mohamed Ben Ali",
@@ -32,6 +41,23 @@
       "name": "Prof. Tareq Wahbi Al-Bury",
       "title": "Architecture & Urban Planning Consultant"
     }
+  },
+  "projects": {
+    "label": "Portfolio",
+    "title": "Our Projects",
+    "description": "A diverse portfolio spanning residential, commercial, healthcare, and cultural projects across Libya's major cities and coastal regions.",
+    "categories": {
+      "all": "All Projects",
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "healthcare": "Healthcare",
+      "cultural": "Cultural"
+    }
+  },
+  "gallery": {
+    "label": "Gallery",
+    "title": "Design in Detail",
+    "description": "Explore the craftsmanship and attention to detail that defines our architectural approach."
   },
   "hero": {
     "header": "Architectural Excellence",
@@ -50,17 +76,103 @@
     "projects": "Projects"
   },
   "services": {
-    "architectural": "Architectural Design",
-    "architecturalDesc": "Comprehensive architectural design services from concept to completion, blending contemporary aesthetics with functional excellence.",
-    "engineering": "Engineering Consultancy",
-    "engineeringDesc": "Multidisciplinary engineering services including structural, MEP, and civil engineering for complex projects.",
-    "heritage": "Heritage Conservation",
-    "heritageDesc": "Specialized restoration and conservation services preserving cultural heritage while adapting historic structures for modern use.",
-    "project": "Project Management",
-    "projectDesc": "End-to-end project management ensuring timely delivery, quality control, and budget adherence throughout the construction process.",
-    "site": "Site Supervision",
-    "siteDesc": "Professional on-site supervision and quality assurance ensuring construction meets design specifications and standards.",
-    "urban": "Urban Planning",
-    "urbanDesc": "Master planning and urban design solutions that create sustainable, livable communities and enhance urban environments."
+    "architectural": {
+      "des": "Comprehensive architectural design services from concept to completion, blending contemporary aesthetics with functional excellence.",
+      "title": "Architectural Design"
+    },
+    "construction": {
+      "des": "Professional on-site supervision ensuring construction meets design specifications, quality standards, and safety requirements.",
+      "title": "Construction Supervision"
+    },
+    "h1": "What We Do",
+    "h2": "Our Services",
+    "landscape": {
+      "des": "Creating harmonious outdoor spaces that integrate natural elements with architectural vision and environmental sustainability.",
+      "title": "Landscape Design"
+    },
+    "p": "Comprehensive architectural and engineering services tailored to meet the unique needs of each project, from initial concept through final completion.",
+    "project": {
+      "title": "Project Management",
+      "des": "End-to-end project management ensuring timely delivery, quality control, and budget adherence throughout the construction process."
+    },
+    "structural": {
+      "des": "Advanced structural engineering solutions ensuring safety, stability, and innovative construction methodologies.",
+      "title": "Structural Design"
+    },
+    "urban": {
+      "des": "Master planning and urban design solutions that create sustainable, livable communities and enhance urban environments.",
+      "title": "Urban Planning"
+    },
+    "boq": {
+      "title": "BOQ & Specifications",
+      "des": "Detailed bill of quantities and technical specifications for accurate project costing and procurement."
+    },
+    "shop": {
+      "title": "Shop Drawings & Detailing",
+      "des": "Precise construction drawings and technical details for seamless execution and coordination between trades."
+    },
+    "mep": {
+      "title": "Mechanical & Electrical Design",
+      "des": "Integrated MEP design services including HVAC, plumbing, electrical systems, and building automation."
+    }
+  },
+
+  "contact": {
+    "label": "Get in Touch",
+    "title": "Let's Create Something Extraordinary",
+    "description": "Whether you're planning a new project or seeking architectural consultation, we're here to bring your vision to life with expertise and creativity.",
+    "office": {
+      "location": "Office Location",
+      "address": "Engineering Group Company\nBenghazi, Libya",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "email": "info@engroup.ly",
+      "hoursTitle": "Office Hours",
+      "hours": {
+        "working": {
+          "day": "Saturday - Thursday",
+          "time": "9:00 AM - 5:00 PM"
+        },
+        "friday": { "day": "Friday", "time": "Closed" }
+      }
+    },
+    "form": {
+      "name": "Full Name *",
+      "namePlaceholder": "Your name",
+      "email": "Email Address *",
+      "emailPlaceholder": "your.email@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+218 XX XXX XXXX",
+      "message": "Project Details *",
+      "messagePlaceholder": "Tell us about your project...",
+      "submit": "Send Message"
+    }
+  },
+  "footer": {
+    "company": {
+      "name": "EGC",
+      "description": "Engineering Group Company - A multi-disciplinary architectural practice dedicated to creating exceptional spaces that honor heritage and embrace innovation.",
+      "established": "Established 1998 | Benghazi, Libya"
+    },
+    "links": {
+      "title": "Quick Links",
+      "about": "About Us",
+      "founders": "Co-Founders",
+      "projects": "Projects",
+      "gallery": "Gallery",
+      "contact": "Contact"
+    },
+    "services": {
+      "title": "Services",
+      "items": {
+        "1": "Architectural Design",
+        "2": "Urban Planning",
+        "3": "Project Management",
+        "4": "Heritage Restoration",
+        "5": "Interior Design",
+        "6": "Consultation"
+      }
+    },
+    "bottom": "© {year} Engineering Group Company. All rights reserved."
   }
 }

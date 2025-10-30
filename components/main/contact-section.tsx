@@ -1,15 +1,17 @@
 "use client";
 
 import type React from "react";
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 
 export function ContactSection() {
+  const t = useTranslations("contact");
+  const locale = useLocale();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,7 +21,6 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Form submitted:", formData);
   };
 
@@ -34,15 +35,13 @@ export function ContactSection() {
           <div className="space-y-8">
             <div>
               <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4">
-                Get in Touch
+                {t("label")}
               </p>
               <h2 className="font-serif font-semibold text-4xl md:text-5xl text-balance leading-tight">
-                Let&apos;s Create Something Extraordinary
+                {t("title")}
               </h2>
               <p className="text-muted-foreground mt-6 leading-relaxed">
-                Whether you&apos;re planning a new project or seeking
-                architectural consultation, we&apos;re here to bring your vision
-                to life with expertise and creativity.
+                {t("description")}
               </p>
             </div>
 
@@ -57,26 +56,26 @@ export function ContactSection() {
                   <MapPin className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Office Location</h3>
+                  <h3 className="font-semibold mb-1">{t("office.location")}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Engineering Group Company
-                    <br />
-                    Benghazi, Libya
+                    {t("office.address")}
                   </p>
                 </div>
               </Link>
 
               <Link
-                href="tel:+218XXXXXXXXX"
+                href="tel:+218916517020"
                 className="flex items-start gap-4 hover:opacity-80 transition-opacity"
               >
                 <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Phone</h3>
+                  <h3 className="font-semibold mb-1">
+                    {t("office.phoneLabel")}
+                  </h3>
                   <p className="text-muted-foreground text-sm">
-                    +218 XX XXX XXXX
+                    00218916517020
                   </p>
                 </div>
               </Link>
@@ -89,24 +88,26 @@ export function ContactSection() {
                   <Mail className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Email</h3>
+                  <h3 className="font-semibold mb-1">
+                    {t("office.emailLabel")}
+                  </h3>
                   <p className="text-muted-foreground text-sm">
-                    info@engroup.ly
+                    {t("office.email")}
                   </p>
                 </div>
               </Link>
             </div>
 
             <div className="pt-6 border-t border-border">
-              <h3 className="font-semibold mb-4">Office Hours</h3>
+              <h3 className="font-semibold mb-4">{t("office.hoursTitle")}</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
                 <div className="flex justify-between">
-                  <span>Saturday - Thursday</span>
-                  <span>9:00 AM - 5:00 PM</span>
+                  <span>{t("office.hours.working.day")}</span>
+                  <span>{t("office.hours.working.time")}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Friday</span>
-                  <span>Closed</span>
+                  <span>{t("office.hours.friday.day")}</span>
+                  <span>{t("office.hours.friday.time")}</span>
                 </div>
               </div>
             </div>
@@ -120,7 +121,7 @@ export function ContactSection() {
                   htmlFor="name"
                   className="block text-sm font-medium mb-2"
                 >
-                  Full Name *
+                  {t("form.name")}
                 </label>
                 <Input
                   id="name"
@@ -130,7 +131,7 @@ export function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  placeholder="Your name"
+                  placeholder={t("form.namePlaceholder")}
                 />
               </div>
 
@@ -139,7 +140,7 @@ export function ContactSection() {
                   htmlFor="email"
                   className="block text-sm font-medium mb-2"
                 >
-                  Email Address *
+                  {t("form.email")}
                 </label>
                 <Input
                   id="email"
@@ -149,7 +150,7 @@ export function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  placeholder="your.email@example.com"
+                  placeholder={t("form.emailPlaceholder")}
                 />
               </div>
 
@@ -158,7 +159,7 @@ export function ContactSection() {
                   htmlFor="phone"
                   className="block text-sm font-medium mb-2"
                 >
-                  Phone Number
+                  {t("form.phone")}
                 </label>
                 <Input
                   id="phone"
@@ -167,7 +168,7 @@ export function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, phone: e.target.value })
                   }
-                  placeholder="+218 XX XXX XXXX"
+                  placeholder={t("form.phonePlaceholder")}
                 />
               </div>
 
@@ -176,7 +177,7 @@ export function ContactSection() {
                   htmlFor="message"
                   className="block text-sm font-medium mb-2"
                 >
-                  Project Details *
+                  {t("form.message")}
                 </label>
                 <Textarea
                   id="message"
@@ -186,12 +187,12 @@ export function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  placeholder="Tell us about your project..."
+                  placeholder={t("form.messagePlaceholder")}
                 />
               </div>
 
               <Button type="submit" size="lg" className="w-full">
-                Send Message
+                {t("form.submit")}
               </Button>
             </form>
           </div>

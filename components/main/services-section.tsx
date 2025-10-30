@@ -5,6 +5,10 @@ import {
   Users,
   Lightbulb,
   FileText,
+  Trees,
+  HardHat,
+  PenTool,
+  Zap,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -13,33 +17,48 @@ export function ServicesSection() {
   const services = [
     {
       icon: Building2,
-      title: t("architectural"),
-      description: t("architecturalDesc"),
+      title: t("architectural.title"),
+      description: t("architectural.des"),
     },
     {
       icon: Ruler,
-      title: t("urban"),
-      description: t("urbanDesc"),
+      title: t("urban.title"),
+      description: t("urban.des"),
+    },
+    {
+      icon: Trees,
+      title: t("landscape.title"),
+      description: t("landscape.des"),
+    },
+    {
+      icon: HardHat,
+      title: t("structural.title"),
+      description: t("structural.des"),
     },
     {
       icon: ClipboardCheck,
-      title: t("project"),
-      description: t("projectDesc"),
+      title: t("construction.title"),
+      description: t("construction.des"),
     },
     {
       icon: Users,
-      title: t("engineering"),
-      description: t("engineeringDesc"),
-    },
-    {
-      icon: Lightbulb,
-      title: t("heritage"),
-      description: t("heritageDesc"),
+      title: t("project.title"),
+      description: t("project.des"),
     },
     {
       icon: FileText,
-      title: t("site"),
-      description: t("siteDesc"),
+      title: t("boq.title"),
+      description: t("boq.des"),
+    },
+    {
+      icon: PenTool,
+      title: t("shop.title"),
+      description: t("shop.des"),
+    },
+    {
+      icon: Zap,
+      title: t("mep.title"),
+      description: t("mep.des"),
     },
   ];
 
@@ -48,16 +67,12 @@ export function ServicesSection() {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4">
-            What We Do
+            {t("h1")}
           </p>
           <h2 className="font-serif font-semibold text-4xl md:text-5xl lg:text-6xl text-balance leading-tight">
-            Our Services
+            {t("h2")}
           </h2>
-          <p className="text-muted-foreground mt-6 leading-relaxed">
-            Comprehensive architectural and engineering services tailored to
-            meet the unique needs of each project, from initial concept through
-            final completion.
-          </p>
+          <p className="text-muted-foreground mt-6 leading-relaxed">{t("p")}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">

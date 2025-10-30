@@ -29,15 +29,13 @@ export function FoundersSection() {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">
-            Leadership
+            {t("leadership")}
           </p>
           <h2 className="font-serif font-semibold text-3xl md:text-4xl text-balance leading-tight">
-            Meet Our Co-Founders
+            {t("title")}
           </h2>
           <p className="text-muted-foreground mt-4 text-sm leading-relaxed">
-            Four principal partners with complementary expertise, united by a
-            shared vision for architectural excellence and cultural
-            preservation.
+            {t("description")}
           </p>
         </div>
 

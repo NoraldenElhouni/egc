@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type ProjectCategory =
   | "all"
@@ -14,6 +15,7 @@ type ProjectCategory =
   | "cultural";
 
 export function ProjectsSection() {
+  const t = useTranslations("projects");
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>("all");
 
   const categories = [
@@ -117,15 +119,13 @@ export function ProjectsSection() {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4">
-            Portfolio
+            {t("label")}
           </p>
           <h2 className="font-serif font-semibold text-4xl md:text-5xl lg:text-6xl text-balance leading-tight">
-            Our Projects
+            {t("title")}
           </h2>
           <p className="text-muted-foreground mt-6 leading-relaxed">
-            A diverse portfolio spanning residential, commercial, healthcare,
-            and cultural projects across Libya&apos;s major cities and coastal
-            regions.
+            {t("description")}
           </p>
         </div>
 
@@ -139,7 +139,7 @@ export function ProjectsSection() {
               onClick={() => setActiveCategory(category.id)}
               className="uppercase tracking-wider text-xs"
             >
-              {category.label}
+              {t(`categories.${category.id}`)}
             </Button>
           ))}
         </div>

@@ -82,10 +82,10 @@ export function AboutSection() {
               </svg>
             </div>
             <h3 className="font-serif font-semibold text-xl mb-3">
-              {t("innovation")}
+              {t("vision.title")}
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              {t("innovationDescription")}
+              {t("vision.dec")}
             </p>
           </div>
           <div className="text-center p-8">
@@ -107,10 +107,10 @@ export function AboutSection() {
               </svg>
             </div>
             <h3 className="font-serif font-semibold text-xl mb-3">
-              {t("excellence")}
+              {t("mission.title")}
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              {t("excellenceDescription")}
+              {t("mission.dec")}
             </p>
           </div>
           <div className="text-center p-8">
@@ -132,10 +132,10 @@ export function AboutSection() {
               </svg>
             </div>
             <h3 className="font-serif font-semibold text-xl mb-3">
-              {t("sustainability")}
+              {t("values.title")}
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              {t("sustainabilityDescription")}
+              {t("values.dec")}
             </p>
           </div>
         </div>

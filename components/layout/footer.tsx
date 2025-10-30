@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export function Footer() {
+  const t = useTranslations("footer");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -9,27 +13,27 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <h3 className="font-serif font-semibold text-3xl mb-4">EGC</h3>
+            <h3 className="font-serif font-semibold text-3xl mb-4">
+              {t("company.name")}
+            </h3>
             <p className="text-primary-foreground/80 leading-relaxed mb-6 max-w-md">
-              Engineering Group Company - A multi-disciplinary architectural
-              practice dedicated to creating exceptional spaces that honor
-              heritage and embrace innovation.
+              {t("company.description")}
             </p>
             <div className="text-sm text-primary-foreground/60">
-              Established 1998 | Benghazi, Libya
+              {t("company.established")}
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
+            <h4 className="font-semibold text-lg mb-4">{t("links.title")}</h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <Link
                   href="/#about"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  About Us
+                  {t("links.about")}
                 </Link>
               </li>
               <li>
@@ -37,7 +41,7 @@ export function Footer() {
                   href="/#founders"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  Co-Founders
+                  {t("links.founders")}
                 </Link>
               </li>
               <li>
@@ -45,7 +49,7 @@ export function Footer() {
                   href="/projects"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  Projects
+                  {t("links.projects")}
                 </Link>
               </li>
               <li>
@@ -53,7 +57,7 @@ export function Footer() {
                   href="/gallery"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  Gallery
+                  {t("links.gallery")}
                 </Link>
               </li>
               <li>
@@ -61,7 +65,7 @@ export function Footer() {
                   href="/#contact"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  Contact
+                  {t("links.contact")}
                 </Link>
               </li>
             </ul>
@@ -69,14 +73,16 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-lg mb-4">Services</h4>
+            <h4 className="font-semibold text-lg mb-4">
+              {t("services.title")}
+            </h4>
             <ul className="space-y-3 text-sm text-primary-foreground/80">
-              <li>Architectural Design</li>
-              <li>Urban Planning</li>
-              <li>Project Management</li>
-              <li>Heritage Restoration</li>
-              <li>Interior Design</li>
-              <li>Consultation</li>
+              <li>{t("services.items.1")}</li>
+              <li>{t("services.items.2")}</li>
+              <li>{t("services.items.3")}</li>
+              <li>{t("services.items.4")}</li>
+              <li>{t("services.items.5")}</li>
+              <li>{t("services.items.6")}</li>
             </ul>
           </div>
         </div>
@@ -84,9 +90,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/60">
-            <p>
-              © {currentYear} Engineering Group Company. All rights reserved.
-            </p>
+            <p>{t("bottom", { year: currentYear })}</p>
           </div>
         </div>
       </div>
