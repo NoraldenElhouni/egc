@@ -7,19 +7,19 @@ export function FoundersSection() {
     {
       name: t("rafiq.name"),
       title: t("rafiq.title"),
-      image: "/professionals/architect-1.png",
+      image: "/f/WhatsApp Image 2025-10-30 at 14.18.56_6f38b5da.jpg",
       bio: t("rafiq.bio"),
     },
     {
       name: t("amer.name"),
       title: t("amer.title"),
-      image: "/professional-engineer-portrait.png",
+      image: "/f/WhatsApp Image 2025-10-30 at 14.18.57_68905089.jpg",
       bio: t("amer.bio"),
     },
     {
       name: t("tareq.name"),
       title: t("tareq.title"),
-      image: "/professional-engineer-portrait.png",
+      image: "/f/WhatsApp Image 2025-10-30 at 14.18.56_a316d64b.jpg",
       bio: t("tareq.bio"),
     },
   ];
