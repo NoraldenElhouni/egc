@@ -127,7 +127,12 @@ export function ProjectsSection() {
       location: "Libya",
       description:
         "The Omar Mukhtar Monument, originally built in 1957 and demolished during the Gaddafi period, stands as a symbol of national heritage and pride. Our team developed comprehensive architectural and construction drawings to faithfully reconstruct the monument, restoring it to its original form and honoring its historical and cultural significance. The project emphasized accuracy in materials, detailing, and proportions, ensuring that the restored monument reflects the design intent and spirit of the original work. By carefully balancing historical fidelity with modern construction techniques, the reconstruction revives an important national landmark for future generations.",
-      images: ["/projects/Omer Al Mukhtar Monument/الضريح6.png"],
+      images: [
+        "/projects/Omer Al Mukhtar Monument/الضريح6.png",
+        "/projects/Omer Al Mukhtar Monument/pre-om-tg-hd-010.png",
+        "/projects/Omer Al Mukhtar Monument/pre-om-tg-hd-011.png",
+        "/projects/Omer Al Mukhtar Monument/الضريح1.png",
+      ],
       slug: "omar-mukhtar-monument",
     },
     {
@@ -136,7 +141,11 @@ export function ProjectsSection() {
       location: "Libya",
       description:
         "The Zentain Airport was designed to accommodate 400,000 passengers annually, serving both local and international flights efficiently. The concept prioritizes functional simplicity and spatial efficiency, achieving maximum operational capacity within a minimal footprint. The design emphasizes clear circulation, streamlined passenger flow, and user-friendly facilities, ensuring comfort and convenience for travelers. Strategic zoning of check-in, security, boarding, and support areas allows for smooth operations while maintaining flexibility for future expansion. By combining efficiency, functionality, and modern airport standards, the project delivers a compact yet effective hub that meets the region's air transport needs.",
-      images: ["/projects/Zintan Airport/Layer 680.png"],
+      images: [
+        "/projects/Zintan Airport/Layer 680.png",
+        "/projects/Zintan Airport/Layer 678.png",
+        "/projects/Zintan Airport/Layer 700.png",
+      ],
       slug: "zentain-airport",
     },
     {
