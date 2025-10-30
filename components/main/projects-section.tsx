@@ -35,9 +35,11 @@ export function ProjectsSection() {
       category: "cultural",
       location: "Tripoli, Libya",
       images: [
+        "/projects/Tripoli Water Front/Background copy.png",
         "/projects/Tripoli Water Front/dsd copy.png",
-        "/projects/Tripoli Water Front/image2.png",
-        "/projects/Tripoli Water Front/image3.png",
+        "/projects/Tripoli Water Front/Layer 8.png",
+        "/projects/Tripoli Water Front/qq copy.png",
+        "/projects/Tripoli Water Front/rr copy.png",
       ],
       slug: "tripoli-water-front",
     },
