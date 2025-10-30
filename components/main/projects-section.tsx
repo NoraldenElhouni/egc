@@ -82,7 +82,12 @@ export function ProjectsSection() {
       location: "Aljufra, Libya",
       description:
         "The Aljufra Housing Development in Libya is a conceptual residential project for 250 units, designed to address the harsh desert climate while respecting local social and cultural patterns. Each unit features a private entrance to ensure family privacy, while the overall layout fosters a strong sense of neighborhood connection. The architectural composition creates a rhythmic texture across the site, forming shaded pathways and interconnected courtyards that encourage movement and social interaction. This design not only enhances comfort by reducing exposure to extreme heat and wind but also reflects the traditional urban fabric of desert settlements, balancing privacy, community, and environmental adaptability to offer a contemporary housing model harmonized with Aljufra's cultural and climatic context.",
-      images: ["/projects/250 Housing units/Layer 512.png"],
+      images: [
+        "/projects/250 Housing units/Layer 512.png",
+        "/projects/250 Housing units/Layer 511.png",
+        "/projects/250 Housing units/Layer 513.png",
+        "/projects/250 Housing units/Layer 514.png",
+      ],
       slug: "250-housing-units",
     },
     {
@@ -100,7 +105,11 @@ export function ProjectsSection() {
       location: "Tripoli, Libya",
       description:
         "The Abounoas Commercial Center in Tripoli, Libya, is a concept proposal for a vibrant mixed-use destination designed to bring diverse urban activities together into a single cohesive development. The project integrates commercial spaces, a hotel, a cinema, restaurants, children’s entertainment areas, and a small retail zone, all organized to create a lively and engaging environment. Taking full advantage of its prime coastal location, the design offers panoramic seafront views and encourages interaction and leisure through open terraces, landscaped plazas, and strong visual connections to the waterfront. By blending entertainment, retail, and hospitality functions, the project aims to establish itself as a dynamic social and commercial hub that reflects the modern spirit of Tripoli while embracing its coastal identity.",
-      images: ["/projects/Abu Nawas Tourist Project, Tripoli/Layer 533.png"],
+      images: [
+        "/projects/Abu Nawas Tourist Project, Tripoli/Layer 533.png",
+        "/projects/Abu Nawas Tourist Project, Tripoli/Layer 532.png",
+        "/projects/Abu Nawas Tourist Project, Tripoli/Layer 534.png",
+      ],
       slug: "abu-nawas-tourist-project-tripoli",
     },
     {
