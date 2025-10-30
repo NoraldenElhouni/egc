@@ -91,11 +91,92 @@ export function ProjectsSection() {
       location: "Tripoli, Libya",
       description:
         "The Abounoas Commercial Center in Tripoli, Libya, is a concept proposal for a vibrant mixed-use destination designed to bring diverse urban activities together into a single cohesive development. The project integrates commercial spaces, a hotel, a cinema, restaurants, children’s entertainment areas, and a small retail zone, all organized to create a lively and engaging environment. Taking full advantage of its prime coastal location, the design offers panoramic seafront views and encourages interaction and leisure through open terraces, landscaped plazas, and strong visual connections to the waterfront. By blending entertainment, retail, and hospitality functions, the project aims to establish itself as a dynamic social and commercial hub that reflects the modern spirit of Tripoli while embracing its coastal identity.",
-      images: [
-        "/projects/Abu Nawas Tourist Project, Tripoli/Layer 533.png",
-        "/projects/Abu Nawas Tourist Project, Tripoli/image2.png",
-      ],
+      images: ["/projects/Abu Nawas Tourist Project, Tripoli/Layer 533.png"],
       slug: "abu-nawas-tourist-project-tripoli",
+    },
+    {
+      title: "Fish Market Restoration",
+      category: "cultural",
+      location: "Benghazi, Libya",
+      description:
+        "The Fish Market Restoration in Benghazi, Libya, is a concept proposal for the adaptive reuse of one of the city's historic architectural landmarks. The project approaches the restoration with great sensitivity, aiming to preserve the building's original character, authentic details, and materials while subtly integrating modern interventions to meet current functional needs. The renewed design envisions the market as a vibrant public space that continues to serve local vendors while also attracting visitors through the addition of a small restaurant and tourist amenities, thereby breathing new life into a beloved community landmark and bridging its heritage with modern urban activity.",
+      images: ["/projects/Resort Hotel2/Layer 578-1.png"],
+      slug: "fish-market-restoration",
+    },
+    {
+      title: "Omar Mukhtar Monument",
+      category: "cultural",
+      location: "Libya",
+      description:
+        "The Omar Mukhtar Monument, originally built in 1957 and demolished during the Gaddafi period, stands as a symbol of national heritage and pride. Our team developed comprehensive architectural and construction drawings to faithfully reconstruct the monument, restoring it to its original form and honoring its historical and cultural significance. The project emphasized accuracy in materials, detailing, and proportions, ensuring that the restored monument reflects the design intent and spirit of the original work. By carefully balancing historical fidelity with modern construction techniques, the reconstruction revives an important national landmark for future generations.",
+      images: ["/projects/Omer Al Mukhtar Monument/الضريح6.png"],
+      slug: "omar-mukhtar-monument",
+    },
+    {
+      title: "Zentain Airport",
+      category: "commercial",
+      location: "Libya",
+      description:
+        "The Zentain Airport was designed to accommodate 400,000 passengers annually, serving both local and international flights efficiently. The concept prioritizes functional simplicity and spatial efficiency, achieving maximum operational capacity within a minimal footprint. The design emphasizes clear circulation, streamlined passenger flow, and user-friendly facilities, ensuring comfort and convenience for travelers. Strategic zoning of check-in, security, boarding, and support areas allows for smooth operations while maintaining flexibility for future expansion. By combining efficiency, functionality, and modern airport standards, the project delivers a compact yet effective hub that meets the region's air transport needs.",
+      images: ["/projects/Zintan Airport/Layer 680.png"],
+      slug: "zentain-airport",
+    },
+    {
+      title: "Mail Proposal",
+      category: "commercial",
+      location: "Qatar",
+      description:
+        "The design proposal for the mail in Qatar reinterprets local Qatari architectural identity through a contemporary lens. The concept integrates traditional design elements—such as shaded walkways, courtyards, and geometric patterns—with modern materials and technologies to create a vibrant, environmentally responsive shopping destination. Sustainability was a key design driver, emphasizing natural ventilation, controlled daylight, and the use of energy-efficient systems to ensure thermal comfort while reducing environmental impact. The result is a dynamic retail environment that balances cultural authenticity with modern expectations of leisure, comfort, and sustainability—offering an enjoyable shopping experience that reflects the spirit of Qatar's architectural heritage.",
+      images: ["/projects/Mail Proposal Qatar/Layer 652.png"],
+      slug: "mail-proposal-qatar",
+    },
+    {
+      title: "Mall Al-Haya",
+      category: "commercial",
+      location: "Benghazi, Libya",
+      description:
+        "Mall Al-Haya is a small, locally oriented shopping center located in the heart of Benghazi. The design carefully responds to its urban context, particularly the neighboring Cecia building, a historic structure from the Italian period, ensuring that the new development respects and complements the area's architectural heritage. The layout emphasizes functional retail spaces while maintaining a sensitive relationship with surrounding streetscapes and public areas. By blending contemporary design with contextual awareness, the project creates a small-scale commercial hub that serves local needs while honoring the city's historical fabric.",
+      images: ["/projects/Mall Haya/Layer 700.png"],
+      slug: "mall-haya",
+    },
+    {
+      title: "Peril Island Housing",
+      category: "residential",
+      location: "Doha, Qatar",
+      description:
+        "The Peril Island Housing project in Doha was designed following the developer's guidelines while responding to the needs of Qatari families. The layout emphasizes maximizing sea views for all residences, creating a strong visual and spatial connection with the waterfront. The design combines functional living spaces with communal amenities, ensuring comfort, privacy, and convenience for families. Thoughtful orientation, landscaping, and open spaces enhance the quality of life while maintaining harmony with the coastal environment.",
+      images: [
+        "/projects/Peril Island Housing/Layer 597.png",
+        "/projects/Peril Island Housing/Layer 598.png",
+      ],
+      slug: "peril-island-housing",
+    },
+    {
+      title: "Cardan Hotel",
+      category: "commercial",
+      location: "Benghazi, Libya",
+      description:
+        "The Cardan Hotel is situated on Dubai Street in Benghazi, a vibrant area known for its gold and jewelry shops. The hotel comprises 47 guest rooms, including three suites, as well as a conference hall, meeting rooms, and restaurants. The architectural design adopts a simple Mediterranean style, creating a harmonious visual relationship with the surrounding urban fabric. The use of clean lines, light materials, and contextual detailing allows the hotel to integrate seamlessly into the lively street, providing both functionality and aesthetic appeal for guests and visitors.",
+      images: [
+        "/projects/Cardan Hotel/Asset 2.png",
+        "/projects/Cardan Hotel/Asset 3.png",
+        "/projects/Cardan Hotel/Asset 4.png",
+        "/projects/Cardan Hotel/Asset 5.png",
+      ],
+      slug: "cardan-hotel",
+    },
+    {
+      title: "Venice Street Hotel Studio Complex",
+      category: "commercial",
+      location: "Benghazi, Libya",
+      description:
+        "The Venice Street Hotel Studio Complex comprises 12 studios set within an outdoor landscaped environment featuring a children's play area and swimming pools. Located on one of Benghazi's most prominent shopping streets, the complex combines convenience with leisure, offering residents and guests a comfortable and engaging environment. The architectural design blends Arabic motifs with Mediterranean townscapes, creating a harmonious and culturally resonant aesthetic. Thoughtful spatial planning ensures privacy for each studio while promoting interaction through shared outdoor spaces, balancing community living with modern hospitality standards.",
+      images: [
+        "/projects/Venice Street Hotel Studio Complex/Enscape_2024-10-10-11-08-39 copy.png",
+        "/projects/Venice Street Hotel Studio Complex/Enscape_2024-10-12-03-55-42 copy.png",
+        "/projects/Venice Street Hotel Studio Complex/Enscape_2024-10-12-03-59-50 copy.jpg",
+      ],
+      slug: "venice-street-hotel-studio-complex",
     },
   ];
 
@@ -103,7 +184,7 @@ export function ProjectsSection() {
     activeCategory === "all"
       ? projects
       : projects.filter((p) => p.category === activeCategory);
-  const displayedProjects = filteredProjects.slice(0, 6);
+  const displayedProjects = filteredProjects.slice(0, 20);
 
   const openLightbox = (project: Project) => {
     setSelectedProject(project);
