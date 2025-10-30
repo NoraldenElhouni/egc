@@ -16,7 +16,7 @@ export default function Home() {
       <FoundersSection />
       <ProjectsSection />
       {/* <TeamSection /> */}
-      <GallerySection />
+      {/* <GallerySection /> */}
       <ContactSection />
     </main>
   );

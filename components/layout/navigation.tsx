@@ -46,7 +46,7 @@ export function Navigation() {
     { href: "/#about", label: t("about") },
     { href: "/#founders", label: t("coFounders") },
     { href: "/#projects", label: t("projects") },
-    { href: "/#gallery", label: t("gallery") },
+    // { href: "/#gallery", label: t("gallery") },
     { href: "/#contact", label: t("contact") },
   ];
 
