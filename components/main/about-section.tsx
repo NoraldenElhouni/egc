@@ -9,7 +9,7 @@ export function AboutSection() {
           {/* Image */}
           <div className="relative aspect-4/5 overflow-hidden">
             <img
-              src="/architectural-blueprints-and-modern-building-desig.jpg"
+              src="/about/Layer 571.png"
               alt="About EGC"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
