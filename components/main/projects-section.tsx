@@ -38,12 +38,12 @@ export function ProjectsSection() {
       description:
         "The Triple Waterfront Design Competition in Tripoli aimed to reestablish the historic connection between the city and its seafront while addressing long-standing urban and transportation challenges. Awarded second place, the proposal envisioned an integrated waterfront that harmonizes mobility, public life, and heritage preservation. The design reorganizes traffic flow to ease congestion and enhance pedestrian accessibility, creating a seamless transition between the historic core of Tripoli and the Mediterranean coastline. Monumental landmarks and public spaces were strategically introduced along the waterfront to enrich the skyline and celebrate the city's cultural identity.",
       images: [
+        "/projects/Tripoli Water Front/rr copy.png",
+        "/projects/Tripoli Water Front/dsd copy.png",
         "/projects/Tripoli Water Front/Layer 7.png",
         "/projects/Tripoli Water Front/Background copy.png",
-        "/projects/Tripoli Water Front/dsd copy.png",
         "/projects/Tripoli Water Front/Layer 8.png",
         "/projects/Tripoli Water Front/qq copy.png",
-        "/projects/Tripoli Water Front/rr copy.png",
       ],
       slug: "tripoli-water-front",
     },
