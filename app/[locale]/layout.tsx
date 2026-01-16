@@ -1,27 +1,66 @@
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
-import { Cairo, Cormorant_Garamond, Geist } from "next/font/google";
+import localFont from "next/font/local";
 import { routing } from "@/i18n/routing";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
 import { Footer } from "@/components/layout/footer";
 import { Navigation } from "@/components/layout/navigation";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-serif",
-});
-
-const geist = Geist({
-  subsets: ["latin"],
+const geist = localFont({
+  src: [
+    {
+      path: "../../public/fonts/geist/Geist-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/geist/Geist-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/geist/Geist-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+  ],
   variable: "--font-sans",
+  display: "swap",
+  fallback: ["system-ui", "Segoe UI", "Arial"],
 });
 
-const cairo = Cairo({
-  subsets: ["latin", "arabic"],
-  weight: ["300", "400", "500", "600", "700"],
+const cairo = localFont({
+  src: [
+    {
+      path: "../../public/fonts/cairo/Cairo-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/cairo/Cairo-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/cairo/Cairo-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/cairo/Cairo-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/cairo/Cairo-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   variable: "--font-arabic",
+  display: "swap",
+  fallback: ["system-ui", "Segoe UI", "Tahoma", "Arial"],
 });
 
 export const metadata: Metadata = {
@@ -29,6 +68,7 @@ export const metadata: Metadata = {
   description:
     "EGC is a multi-disciplinary architectural practice based in Benghazi, Libya, specializing in contemporary design that honors Arab architectural heritage.",
 };
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -41,19 +81,22 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
+  if (!hasLocale(routing.locales, locale)) notFound();
+
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
     <html
       lang={locale}
       dir={dir}
-      className={`${cormorant.variable} ${geist.variable} ${cairo.variable}`}
+      className={`${geist.variable} ${cairo.variable}`}
       suppressHydrationWarning
     >
-      <body className={`font-sans antialiased`}>
+      <body
+        className={`${
+          locale === "ar" ? "font-arabic" : "font-sans"
+        } antialiased`}
+      >
         <NextIntlClientProvider>
           <Navigation />
           {children}

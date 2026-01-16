@@ -174,5 +174,43 @@
       }
     },
     "bottom": "© {year} Engineering Group Company. All rights reserved."
+  },
+  "support": {
+    "title": "EGC Builder Support",
+    "subtitle": "Need help? Contact our support team using the options below.",
+    "cards": {
+      "email": {
+        "title": "Email",
+        "desc": "Send us an email and we will respond within 24–48 hours."
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "desc": "Message us on WhatsApp for faster support during business hours.",
+        "cta": "Open WhatsApp Support"
+      },
+      "phone": {
+        "title": "Phone",
+        "desc": "Contact us by phone during business hours."
+      },
+      "website": {
+        "title": "Website",
+        "desc": "Visit our company website for updates and more information."
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "q": "How do I create an account?",
+        "a": "Accounts are created and managed by your organization administrator."
+      },
+      "q2": {
+        "q": "I forgot my password",
+        "a": "Contact your organization admin or email support to reset access."
+      },
+      "q3": {
+        "q": "How do I report a problem?",
+        "a": "Please include screenshots and steps to reproduce the issue when contacting support."
+      }
+    }
   }
 }
