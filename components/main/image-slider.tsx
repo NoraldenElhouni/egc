@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type TouchEvent } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -43,6 +43,23 @@ export function ImageSlider({ slides }: { slides: HeroSlide[] }) {
   const closeLightbox = () => {
     setIsLightboxOpen(false);
     resetTimer();
+  };
+
+  const touchStartXRef = useRef<number | null>(null);
+  const SWIPE_THRESHOLD_PX = 40;
+
+  const handleTouchStart = (e: TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: TouchEvent) => {
+    const startX = touchStartXRef.current;
+    touchStartXRef.current = null;
+    if (startX === null) return;
+    const deltaX = e.changedTouches[0].clientX - startX;
+    if (Math.abs(deltaX) < SWIPE_THRESHOLD_PX) return;
+    if (deltaX < 0) goTo(activeIndex + 1);
+    else goTo(activeIndex - 1);
   };
 
   if (slides.length === 0) return null;
@@ -136,6 +153,8 @@ export function ImageSlider({ slides }: { slides: HeroSlide[] }) {
           <div
             className="relative w-full h-full flex items-center justify-center p-4 md:p-8"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             <div className="relative w-full h-full max-w-6xl max-h-[80vh]">
               <Image

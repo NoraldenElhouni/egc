@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -8,6 +8,73 @@ import { useTranslations } from "next-intl";
 import type { LocalizedCategory, LocalizedProject } from "@/lib/data/projects";
 
 const ALL = "all";
+
+// While the card is hovered, cycle to the next image every HOVER_CYCLE_MS.
+// Reverts to the cover image as soon as the pointer leaves.
+const HOVER_CYCLE_MS = 1200;
+
+function ProjectCard({
+  project,
+  imageCountLabel,
+  onOpen,
+}: {
+  project: LocalizedProject;
+  imageCountLabel: string;
+  onOpen: () => void;
+}) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const images = project.images;
+
+  useEffect(() => {
+    if (!isHovered || images.length <= 1) return;
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % images.length);
+    }, HOVER_CYCLE_MS);
+    return () => clearInterval(interval);
+  }, [isHovered, images]);
+
+  const image = images[activeIndex] ?? images[0];
+
+  return (
+    <div
+      className="group cursor-pointer"
+      onClick={onOpen}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setActiveIndex(0);
+      }}
+    >
+      <div className="relative aspect-4/3 overflow-hidden mb-6 bg-card">
+        <Image
+          src={image?.url || "/placeholder.svg"}
+          alt={image?.alt || project.title}
+          fill
+          sizes="(min-width: 1024px) 384px, (min-width: 768px) 50vw, 100vw"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <p className="text-sm mb-2">{project.title}</p>
+            <p className="text-xs opacity-75">{imageCountLabel}</p>
+          </div>
+        </div>
+      </div>
+      <div className="space-y-2">
+        <h3 className="font-serif font-semibold text-xl group-hover:text-accent transition-colors">
+          {project.title}
+        </h3>
+        <div className="flex items-center justify-between text-sm text-muted-foreground">
+          <span>{project.location}</span>
+        </div>
+        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+          {project.description}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export function ProjectsGrid({
   projects,
@@ -53,7 +120,7 @@ export function ProjectsGrid({
   const nextImage = () => {
     if (selectedProject) {
       setCurrentImageIndex((prev) =>
-        prev === selectedProject.images.length - 1 ? 0 : prev + 1
+        prev === selectedProject.images.length - 1 ? 0 : prev + 1,
       );
     }
   };
@@ -61,9 +128,26 @@ export function ProjectsGrid({
   const previousImage = () => {
     if (selectedProject) {
       setCurrentImageIndex((prev) =>
-        prev === 0 ? selectedProject.images.length - 1 : prev - 1
+        prev === 0 ? selectedProject.images.length - 1 : prev - 1,
       );
     }
+  };
+
+  const touchStartXRef = useRef<number | null>(null);
+  const SWIPE_THRESHOLD_PX = 40;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const startX = touchStartXRef.current;
+    touchStartXRef.current = null;
+    if (startX === null) return;
+    const deltaX = e.changedTouches[0].clientX - startX;
+    if (Math.abs(deltaX) < SWIPE_THRESHOLD_PX) return;
+    if (deltaX < 0) nextImage();
+    else previousImage();
   };
 
   return (
@@ -108,40 +192,14 @@ export function ProjectsGrid({
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {displayedProjects.map((project) => (
-              <div
+              <ProjectCard
                 key={project.id}
-                className="group cursor-pointer"
-                onClick={() => openLightbox(project)}
-              >
-                <div className="relative aspect-4/3 overflow-hidden mb-6 bg-card">
-                  <Image
-                    src={project.images[0]?.url || "/placeholder.svg"}
-                    alt={project.images[0]?.alt || project.title}
-                    fill
-                    sizes="(min-width: 1024px) 384px, (min-width: 768px) 50vw, 100vw"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <p className="text-sm mb-2">{project.title}</p>
-                      <p className="text-xs opacity-75">
-                        {t("imageCount", { count: project.images.length })}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="font-serif font-semibold text-xl group-hover:text-accent transition-colors">
-                    {project.title}
-                  </h3>
-                  <div className="flex items-center justify-between text-sm text-muted-foreground">
-                    <span>{project.location}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
-                    {project.description}
-                  </p>
-                </div>
-              </div>
+                project={project}
+                imageCountLabel={t("imageCount", {
+                  count: project.images.length,
+                })}
+                onOpen={() => openLightbox(project)}
+              />
             ))}
           </div>
         </div>
@@ -165,6 +223,8 @@ export function ProjectsGrid({
           <div
             className="relative w-full h-full flex items-center justify-center p-4 md:p-8"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             <div className="relative w-full h-full max-w-6xl max-h-[80vh]">
               <Image
