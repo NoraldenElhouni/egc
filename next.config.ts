@@ -9,6 +9,9 @@ const supabaseHost = process.env.SUPABASE_URL
   : undefined;
 
 const nextConfig: NextConfig = {
+  // Lets phones on the same WiFi load dev JS bundles when testing via the
+  // machine's LAN IP (e.g. http://192.168.2.32:3000) instead of localhost.
+  // allowedDevOrigins: ["192.168.2.32"],
   images: {
     remotePatterns: supabaseHost
       ? [
