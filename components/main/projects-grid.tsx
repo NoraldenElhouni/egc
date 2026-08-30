@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -38,15 +39,18 @@ function ProjectCard({
 
   return (
     <div
-      className="group cursor-pointer"
-      onClick={onOpen}
+      className="group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
         setActiveIndex(0);
       }}
     >
-      <div className="relative aspect-4/3 overflow-hidden mb-6 bg-card">
+      {/* Opens the image lightbox. */}
+      <div
+        className="relative aspect-4/3 overflow-hidden mb-6 bg-card cursor-pointer"
+        onClick={onOpen}
+      >
         <Image
           src={image?.url || "/placeholder.svg"}
           alt={image?.alt || project.title}
@@ -61,7 +65,8 @@ function ProjectCard({
           </div>
         </div>
       </div>
-      <div className="space-y-2">
+      {/* Goes to the project's detail page. */}
+      <Link href={`/projects/${project.slug}`} className="block space-y-2">
         <h3 className="font-serif font-semibold text-xl group-hover:text-accent transition-colors">
           {project.title}
         </h3>
@@ -71,7 +76,7 @@ function ProjectCard({
         <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
           {project.description}
         </p>
-      </div>
+      </Link>
     </div>
   );
 }
@@ -201,6 +206,20 @@ export function ProjectsGrid({
                 onOpen={() => openLightbox(project)}
               />
             ))}
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-16">
+            <Button asChild size="lg" className="uppercase tracking-wider">
+              <Link href="/projects">{t("viewAll")}</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="uppercase tracking-wider"
+            >
+              <Link href="/gallery">{t("viewGallery")}</Link>
+            </Button>
           </div>
         </div>
       </section>

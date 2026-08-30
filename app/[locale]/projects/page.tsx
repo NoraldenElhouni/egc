@@ -4,6 +4,10 @@ import { ProjectsCatalog } from "@/components/projects/projects-catalog";
 
 export const revalidate = 3600;
 
+// Firm was established in 1998 (see messages.about.paragraph1) -- compute the
+// years-of-experience stat instead of hand-updating a hardcoded number.
+const FOUNDING_YEAR = 1998;
+
 export default async function ProjectsPage({
   params,
 }: {
@@ -44,10 +48,10 @@ export default async function ProjectsPage({
 
           {/* Stats Section */}
           <div className="mt-24 pt-16 border-t border-border">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
               <div>
                 <div className="font-serif text-4xl md:text-5xl font-semibold text-accent mb-2">
-                  500+
+                  200+
                 </div>
                 <div className="text-sm uppercase tracking-wider text-muted-foreground">
                   {t("stats.completed")}
@@ -55,7 +59,7 @@ export default async function ProjectsPage({
               </div>
               <div>
                 <div className="font-serif text-4xl md:text-5xl font-semibold text-accent mb-2">
-                  25+
+                  {new Date().getFullYear() - FOUNDING_YEAR}+
                 </div>
                 <div className="text-sm uppercase tracking-wider text-muted-foreground">
                   {t("stats.experience")}
@@ -67,14 +71,6 @@ export default async function ProjectsPage({
                 </div>
                 <div className="text-sm uppercase tracking-wider text-muted-foreground">
                   {t("stats.team")}
-                </div>
-              </div>
-              <div>
-                <div className="font-serif text-4xl md:text-5xl font-semibold text-accent mb-2">
-                  100%
-                </div>
-                <div className="text-sm uppercase tracking-wider text-muted-foreground">
-                  {t("stats.satisfaction")}
                 </div>
               </div>
             </div>

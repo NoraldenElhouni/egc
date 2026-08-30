@@ -152,6 +152,84 @@ export async function getFeaturedProjects(
   return projects.filter((project) => project.isFeatured);
 }
 
+export async function getProjectBySlug(
+  locale: string,
+  slug: string
+): Promise<LocalizedProject | null> {
+  const loc = asLocale(locale);
+
+  try {
+    const supabase = createClient();
+
+    const [projectResult, categoriesResult] = await Promise.all([
+      supabase
+        .from("projects")
+        .select(
+          `id, slug, category_id, title_en, title_ar,
+           description_en, description_ar, location_en, location_ar,
+           client_en, client_ar, status_en, status_ar, year, is_featured,
+           project_images ( id, storage_path, alt_en, alt_ar, sort_order, is_cover )`
+        )
+        .eq("is_active", true)
+        .eq("slug", slug)
+        .order("sort_order", {
+          referencedTable: "project_images",
+          ascending: true,
+        })
+        .maybeSingle(),
+      supabase.from("categories").select("id, name_en, name_ar"),
+    ]);
+
+    if (projectResult.error) {
+      report("getProjectBySlug", projectResult.error);
+      return null;
+    }
+    if (!projectResult.data) return null;
+    if (categoriesResult.error) {
+      report("getProjectBySlug/categories", categoriesResult.error);
+    }
+
+    const categoryNames = new Map(
+      (categoriesResult.data ?? []).map((row) => [
+        row.id,
+        pick(row.name_en, row.name_ar, loc),
+      ])
+    );
+
+    const row = projectResult.data;
+    const images = [...(row.project_images ?? [])]
+      // `is_cover` wins regardless of sort_order, so the hero image is always
+      // the one the ERP marked as the cover.
+      .sort((a, b) => {
+        if (a.is_cover !== b.is_cover) return a.is_cover ? -1 : 1;
+        return a.sort_order - b.sort_order;
+      })
+      .map((image) => ({
+        id: image.id,
+        url: storageUrl(image.storage_path),
+        alt: pick(image.alt_en, image.alt_ar, loc),
+      }));
+
+    return {
+      id: row.id,
+      slug: row.slug,
+      title: pick(row.title_en, row.title_ar, loc),
+      description: pick(row.description_en, row.description_ar, loc),
+      location: pick(row.location_en, row.location_ar, loc),
+      client: pick(row.client_en, row.client_ar, loc) || null,
+      status: pick(row.status_en, row.status_ar, loc) || null,
+      year: row.year,
+      categoryId: row.category_id,
+      categoryName: categoryNames.get(row.category_id) ?? "",
+      isFeatured: row.is_featured,
+      images,
+    };
+  } catch (error) {
+    report("getProjectBySlug", error);
+    return null;
+  }
+}
+
 /** Every image of every active project, flattened, for the gallery page. */
 export async function getGalleryImages(
   locale: string

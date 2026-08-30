@@ -54,6 +54,9 @@
       "cultural": "Cultural"
     },
     "pageDescription": "A diverse portfolio spanning residential, commercial, healthcare, and cultural projects across Libya's major cities, desert regions, and coastal areas. Each project reflects our commitment to excellence and innovation.",
+    "viewAll": "View All Projects",
+    "viewGallery": "View Gallery",
+    "viewDetails": "View Details",
     "empty": "No projects have been published yet.",
     "imageCount": "{count, plural, =0 {No images} =1 {# image} other {# images}}",
     "imageOf": "Image {current} of {total}",
@@ -64,8 +67,7 @@
     "stats": {
       "completed": "Projects Completed",
       "experience": "Years Experience",
-      "team": "Team Members",
-      "satisfaction": "Client Satisfaction"
+      "team": "Team Members"
     },
     "featured": {
       "back": "Back to All Projects",
@@ -77,8 +79,7 @@
       "year": "Year",
       "location": "Location",
       "category": "Category",
-      "cta": "Discuss Your Project",
-      "none": "No featured project has been published yet."
+      "cta": "Discuss Your Project"
     },
     "seeMore": "See more",
     "seeLess": "See less"

@@ -1,34 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowLeft, MapPin, Calendar, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProjectImageGallery } from "@/components/projects/project-image-gallery";
-import { getFeaturedProjects } from "@/lib/data/projects";
+import { getProjectBySlug } from "@/lib/data/projects";
 
 export const revalidate = 3600;
 
-export default async function FeaturedProjectPage({
+export default async function ProjectDetailPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { locale } = await params;
+  const { locale, slug } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "projects" });
-  const [project] = await getFeaturedProjects(locale);
+  const project = await getProjectBySlug(locale, slug);
 
   if (!project) {
-    return (
-      <main className="min-h-screen flex items-center justify-center">
-        <div className="text-center px-6">
-          <p className="text-muted-foreground mb-6">{t("featured.none")}</p>
-          <Button asChild variant="outline">
-            <Link href="/projects">{t("featured.back")}</Link>
-          </Button>
-        </div>
-      </main>
-    );
+    notFound();
   }
 
   const cover = project.images[0];

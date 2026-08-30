@@ -1,9 +1,9 @@
-import { getCategories, getProjects } from "@/lib/data/projects";
+import { getCategories, getFeaturedProjects } from "@/lib/data/projects";
 import { ProjectsGrid } from "@/components/main/projects-grid";
 
 export async function ProjectsSection({ locale }: { locale: string }) {
   const [projects, categories] = await Promise.all([
-    getProjects(locale),
+    getFeaturedProjects(locale),
     getCategories(locale),
   ]);
 
