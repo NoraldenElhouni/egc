@@ -52,12 +52,48 @@
       "commercial": "Commercial",
       "healthcare": "Healthcare",
       "cultural": "Cultural"
-    }
+    },
+    "pageDescription": "A diverse portfolio spanning residential, commercial, healthcare, and cultural projects across Libya's major cities, desert regions, and coastal areas. Each project reflects our commitment to excellence and innovation.",
+    "empty": "No projects have been published yet.",
+    "imageCount": "{count, plural, =0 {No images} =1 {# image} other {# images}}",
+    "imageOf": "Image {current} of {total}",
+    "closeLightbox": "Close lightbox",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "viewProject": "Click to enlarge",
+    "stats": {
+      "completed": "Projects Completed",
+      "experience": "Years Experience",
+      "team": "Team Members",
+      "satisfaction": "Client Satisfaction"
+    },
+    "featured": {
+      "back": "Back to All Projects",
+      "overview": "Project Overview",
+      "gallery": "Project Gallery",
+      "info": "Project Information",
+      "client": "Client",
+      "status": "Status",
+      "year": "Year",
+      "location": "Location",
+      "category": "Category",
+      "cta": "Discuss Your Project",
+      "none": "No featured project has been published yet."
+    },
+    "seeMore": "See more",
+    "seeLess": "See less"
   },
   "gallery": {
     "label": "Gallery",
     "title": "Design in Detail",
-    "description": "Explore the craftsmanship and attention to detail that defines our architectural approach."
+    "description": "Explore the craftsmanship and attention to detail that defines our architectural approach.",
+    "pageDescription": "Explore the craftsmanship, attention to detail, and architectural excellence that defines our work. From concept to completion, every project tells a story.",
+    "empty": "No images have been published yet.",
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "description": "Let's collaborate to bring your architectural vision to life. Our team is ready to discuss your project requirements.",
+      "button": "Get in Touch"
+    }
   },
   "hero": {
     "header": "Architectural Excellence",
@@ -116,7 +152,6 @@
       "des": "Integrated MEP design services including HVAC, plumbing, electrical systems, and building automation."
     }
   },
-
   "contact": {
     "label": "Get in Touch",
     "title": "Let's Create Something Extraordinary",
@@ -133,7 +168,10 @@
           "day": "Saturday - Thursday",
           "time": "9:00 AM - 5:00 PM"
         },
-        "friday": { "day": "Friday", "time": "Closed" }
+        "friday": {
+          "day": "Friday",
+          "time": "Closed"
+        }
       }
     },
     "form": {
@@ -212,5 +250,12 @@
         "a": "Please include screenshots and steps to reproduce the issue when contacting support."
       }
     }
+  },
+  "heroSlider": {
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "goToSlide": "Go to slide {number}",
+    "closeLightbox": "Close lightbox",
+    "imageOf": "{current} of {total}"
   }
 }
