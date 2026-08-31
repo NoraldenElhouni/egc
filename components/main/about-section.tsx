@@ -1,13 +1,18 @@
 import { useTranslations } from "next-intl";
 
+// Firm was established in 1998 (see messages.about.paragraph1) -- compute the
+// years-of-experience stat instead of hand-updating a hardcoded number, same
+// as the /projects page stats.
+const FOUNDING_YEAR = 1998;
+
 export function AboutSection() {
   const t = useTranslations("about");
   return (
     <section id="about" className="py-12 md:py-24 bg-background">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
-          {/* Image */}
-          <div className="relative aspect-4/5 overflow-hidden">
+          {/* Image: below the text on mobile, back to its normal column on md+ */}
+          <div className="relative aspect-4/5 overflow-hidden order-2 md:order-1">
             <img
               src="/about/Layer 571.png"
               alt="About EGC"
@@ -16,7 +21,7 @@ export function AboutSection() {
           </div>
 
           {/* Content */}
-          <div className="space-y-6">
+          <div className="space-y-6 order-1 md:order-2">
             <div className="space-y-2">
               <p className="text-sm uppercase tracking-widest text-muted-foreground">
                 {t("since")}
@@ -36,7 +41,7 @@ export function AboutSection() {
             <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border">
               <div>
                 <div className="text-3xl font-serif font-semibold text-accent">
-                  25+
+                  {new Date().getFullYear() - FOUNDING_YEAR}+
                 </div>
                 <div className="text-sm text-muted-foreground mt-1">
                   {t("years")}
@@ -44,7 +49,7 @@ export function AboutSection() {
               </div>
               <div>
                 <div className="text-3xl font-serif font-semibold text-accent">
-                  500+
+                  200+
                 </div>
                 <div className="text-sm text-muted-foreground mt-1">
                   {t("projects")}
