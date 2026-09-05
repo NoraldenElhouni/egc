@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
 // Firm was established in 1998 (see messages.about.paragraph1) -- compute the
@@ -5,19 +8,57 @@ import { useTranslations } from "next-intl";
 // as the /projects page stats.
 const FOUNDING_YEAR = 1998;
 
+const ABOUT_IMAGES = [
+  "/about/Omar Mukhtar Monument.jpeg",
+  "/about/Omar Mukhtar Monument(1).jpeg",
+  "/about/Omar Mukhtar Monument(2).jpeg",
+  "/about/Omar Mukhtar Monument(3).jpeg",
+];
+
+const SLIDE_INTERVAL_MS = 4000;
+
 export function AboutSection() {
   const t = useTranslations("about");
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % ABOUT_IMAGES.length);
+    }, SLIDE_INTERVAL_MS);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="about" className="py-12 md:py-24 bg-background">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
           {/* Image: below the text on mobile, back to its normal column on md+ */}
-          <div className="relative aspect-4/5 overflow-hidden order-2 md:order-1">
-            <img
-              src="/about/Layer 571.png"
-              alt="About EGC"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            />
+          <div className="relative aspect-4/5 overflow-hidden order-2 md:order-1 bg-white">
+            {ABOUT_IMAGES.map((src, index) => (
+              <img
+                key={src}
+                src={src}
+                alt="About EGC"
+                className="absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ease-in-out"
+                style={{ opacity: index === activeIndex ? 1 : 0 }}
+              />
+            ))}
+
+            <div className="absolute bottom-4 inset-x-0 flex items-center justify-center gap-2 z-10">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/30 backdrop-blur-sm">
+              {ABOUT_IMAGES.map((src, index) => (
+                <button
+                  key={src}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  aria-label={`${index + 1}`}
+                  className={`h-2 rounded-full transition-all ${
+                    index === activeIndex ? "w-6 bg-white" : "w-2 bg-white/50"
+                  }`}
+                />
+              ))}
+              </div>
+            </div>
           </div>
 
           {/* Content */}
