@@ -26,10 +26,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci --no-audit --no-fund
-      # Non-blocking until eslint.config.mjs is fixed (FlatCompat circular-config crash).
-      - name: Lint
-        run: npm run lint
-        continue-on-error: true
+      - run: npm run lint
       - name: Build (includes type-check)
         run: npm run build
 

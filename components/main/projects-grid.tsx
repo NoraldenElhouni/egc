@@ -95,12 +95,15 @@ export function ProjectsGrid({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
 
-  // Never leave the page unscrollable if this unmounts while the lightbox is up.
+  // Lock page scroll while the lightbox is open; the cleanup also restores it
+  // if this unmounts while the lightbox is up.
   useEffect(() => {
+    if (!selectedProject) return;
+    document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, []);
+  }, [selectedProject]);
 
   const filteredProjects =
     activeCategory === ALL
@@ -112,14 +115,12 @@ export function ProjectsGrid({
     setSelectedProject(project);
     setCurrentImageIndex(0);
     setIsDescriptionExpanded(false);
-    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     setSelectedProject(null);
     setCurrentImageIndex(0);
     setIsDescriptionExpanded(false);
-    document.body.style.overflow = "unset";
   };
 
   const nextImage = () => {

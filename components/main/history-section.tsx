@@ -49,7 +49,7 @@ export function HistorySection() {
             25+ Years of Excellence
           </h2>
           <p className="text-muted-foreground mt-6 leading-relaxed">
-            From our founding in 1998 to becoming one of Libya's most respected
+            From our founding in 1998 to becoming one of Libya&apos;s most respected
             architectural firms, our journey has been marked by innovation,
             dedication, and a commitment to excellence.
           </p>

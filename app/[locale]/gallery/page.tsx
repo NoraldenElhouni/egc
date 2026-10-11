@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getGalleryImages } from "@/lib/data/projects";
 import { GalleryGrid } from "@/components/gallery/gallery-grid";
+import { Link } from "@/i18n/navigation";
 
 export const revalidate = 3600;
 
@@ -46,12 +47,12 @@ export default async function GalleryPage({
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               {t("cta.description")}
             </p>
-            <a
+            <Link
               href="/#contact"
               className="inline-flex items-center justify-center rounded-md bg-accent px-8 py-3 text-sm font-medium text-accent-foreground hover:bg-accent/90 transition-colors uppercase tracking-wider"
             >
               {t("cta.button")}
-            </a>
+            </Link>
           </div>
         </div>
       </section>
