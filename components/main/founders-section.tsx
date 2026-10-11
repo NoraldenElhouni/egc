@@ -5,10 +5,10 @@ export function FoundersSection() {
   const t = useTranslations("founders");
   const founders = [
     {
-      name: t("rafiq.name"),
-      title: t("rafiq.title"),
+      name: t("tareq.name"),
+      title: t("tareq.title"),
       image: "/f/WhatsApp Image 2025-10-30 at 14.18.56_6f38b5da.jpg",
-      bio: t("rafiq.bio"),
+      bio: t("tareq.bio"),
     },
     {
       name: t("amer.name"),
@@ -17,10 +17,10 @@ export function FoundersSection() {
       bio: t("amer.bio"),
     },
     {
-      name: t("tareq.name"),
-      title: t("tareq.title"),
+      name: t("rafiq.name"),
+      title: t("rafiq.title"),
       image: "/f/WhatsApp Image 2025-10-30 at 14.18.56_a316d64b.jpg",
-      bio: t("tareq.bio"),
+      bio: t("rafiq.bio"),
     },
   ];
 
