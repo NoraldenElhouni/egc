@@ -1,0 +1,64 @@
+name: CI / Deploy
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  ci:
+    name: Lint & build
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      # Non-blocking until eslint.config.mjs is fixed (FlatCompat circular-config crash).
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true
+      - name: Build (includes type-check)
+        run: npm run build
+
+  deploy:
+    name: Deploy to engroup.ly
+    needs: ci
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://engroup.ly
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: false
+    steps:
+      - name: Configure SSH
+        run: |
+          install -m 700 -d ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/id_ed25519 ~/.ssh/known_hosts
+      # The key is restricted server-side to /home/deploy/deploy.sh; the only
+      # thing we send is the commit to build.
+      - name: Build release on server and switch over
+        run: ssh -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" "$GITHUB_SHA"
+      - name: Smoke test
+        run: |
+          for i in $(seq 1 10); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' -L https://engroup.ly/) && [ "$code" = 200 ] && { echo "OK ($code)"; exit 0; }
+            echo "got $code, retrying"; sleep 6
+          done
+          exit 1

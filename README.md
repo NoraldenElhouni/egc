@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Deployment
+
+Pushes to `master` run `.github/workflows/deploy.yml`: CI builds the app, then the deploy job SSHes to the server as `deploy` (key restricted to `/home/deploy/deploy.sh`), which builds the commit into `/www/wwwroot/engroup.ly/releases/<timestamp>-<sha>`, flips the `current` symlink, reloads pm2 (`egc`, 127.0.0.1:3000) and rolls back automatically if the health check fails. aaPanel's Nginx proxies `engroup.ly` to it behind Cloudflare.
+
+- Runtime env: `/www/wwwroot/engroup.ly/shared/.env.production` (`SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`)
+- Manual deploy: `sudo -u deploy /home/deploy/deploy.sh master`
+- Rollback: `sudo -u deploy /home/deploy/rollback.sh` (previous release) or `rollback.sh <release-dir>`
+- Logs: `sudo -u deploy pm2 logs egc`
+- GitHub secrets: `SSH_PRIVATE_KEY`, `SSH_KNOWN_HOSTS`, `SSH_HOST`, `SSH_USER`, `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`
